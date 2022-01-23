@@ -18,11 +18,11 @@ export class PostComponentService {
     }
 
     submitForm(data: any) {
-         return this.http.post('https://jsonplaceholder.typicode.com/posts', {
+          this.http.post('https://jsonplaceholder.typicode.com/posts', {
             title: data.value.title,
             body: data.value.body,
             userId: 1,
-            id: 101
+           
         });
     }
 }
