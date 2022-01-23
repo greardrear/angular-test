@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { PostComponentComponent } from './post-component/post-component.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PostItemComponentComponent } from './post-item-component/post-item-component.component';
+import { FormComponent } from './form/form.component';
+import { FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -13,12 +15,14 @@ import { PostItemComponentComponent } from './post-item-component/post-item-comp
     AppComponent,
     PostComponentComponent,
     PostItemComponentComponent,
+    FormComponent,
     
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

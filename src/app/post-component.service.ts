@@ -16,4 +16,13 @@ export class PostComponentService {
         return this.http.get<Post[]>('https://jsonplaceholder.typicode.com/posts');
 
     }
+
+    submitForm(data: any) {
+         return this.http.post('https://jsonplaceholder.typicode.com/posts', {
+            title: data.value.title,
+            body: data.value.body,
+            userId: 1,
+            id: 101
+        });
+    }
 }

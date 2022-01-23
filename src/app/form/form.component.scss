@@ -22,3 +22,29 @@ body, html {
     transition: 1s ease-in-out;
     background: #4F95DA;
   }
+
+  input.ng-invalid.ng-touched {
+    border: 1px solid red;
+  }
+
+  input {
+    width: 220px;
+    height: 30px;
+    background: transparent;
+    border: 1px solid #91C9FF;
+    outline: none;
+    
+    transition: 1s ease-in-out;
+  }
+
+  input:hover {
+    transition: 1s ease-in-out;
+    background: #5CA4EA;
+  }
+  #body {
+    margin-bottom: 15px;
+  }
+
+  #title {
+    margin-bottom: 10px;
+  }

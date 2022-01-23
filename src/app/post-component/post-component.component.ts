@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { PostComponentService } from '../post-component.service';
+
 @Component({
   selector: 'app-post-component',
   templateUrl: './post-component.component.html',
@@ -9,7 +9,7 @@ import { PostComponentService } from '../post-component.service';
 export class PostComponentComponent implements OnInit {
 
 
-
+show: boolean = false;
 
 
   constructor() { 
@@ -18,6 +18,8 @@ export class PostComponentComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  showForm() {
+    this.show = !this.show
+  }
 
 }
