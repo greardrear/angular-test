@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PostComponentService } from '../post-component.service';
 import { Post } from '../posts';
 import { ActivatedRoute } from '@angular/router';
-import { filter } from 'rxjs';
+import { PostGuard } from '../post.guard'
 
 
 @Component({
@@ -14,26 +14,26 @@ export class PostDetailsComponent implements OnInit {
 
 
 post?: Post;
-id: number;
 
-  constructor(private postComponentService: PostComponentService, private route: ActivatedRoute) { 
+
+
+  constructor(private postComponentService: PostComponentService, private route: ActivatedRoute, private canActivate: PostGuard) { 
     
   }
 
   ngOnInit(): void {
-    this.route.queryParams.filter((params) => params.id).subscribe(
-      (params) => {console.log(params);
-        
-
-        this.id = params.id
-    })
-   this.getPost(this.id)
+    let id = parseInt( this.route.snapshot.paramMap.get('id'));
+    this.getPost(id);
+    
+  
+  
   }
 
 getPost(id: number) {
     this.postComponentService.getPost(id).subscribe((res) =>
     {
       this.post = res
+      
     })
   }
 }
