@@ -17,7 +17,7 @@ export class PostComponentService {
         return this.http.get<Post[]>('https://jsonplaceholder.typicode.com/posts');
 
     }
- headers: any = {'content-type': 'application/json'}
+ 
 
     submitForm(data: any): Observable<any> {
         console.log(data)
@@ -26,8 +26,19 @@ export class PostComponentService {
             body: data.body,
             userId: 1,
            
-        }, this.headers);
+        });
+         
 
         
     }
+
+
+getPost(id: number): Observable<Post>   { 
+
+    return this.http.get<Post>('https://jsonplaceholder.typicode.com/posts/${id}');
+  
+  }
+
+
+
 }

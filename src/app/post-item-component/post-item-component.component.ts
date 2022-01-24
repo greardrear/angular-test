@@ -6,7 +6,7 @@ import { PostComponentService } from '../post-component.service';
   styleUrls: ['./post-item-component.component.scss']
 })
 export class PostItemComponentComponent implements OnInit {
-
+detail: boolean = false;
   posts: any;
   postComponentService;
   
@@ -24,5 +24,4 @@ export class PostItemComponentComponent implements OnInit {
     }
   
     
-
 }

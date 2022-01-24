@@ -14,5 +14,8 @@
             {{ (post.body.length>20)? (post.body | slice:0:20)+'...':(post.body) }}
         </li>
     </ul>
+    <button [routerLink]="['/posts', post.id]" class="btn" >View Details</button>
+    
+    <app-post-details *ngIf="detail"></app-post-details>
     
 </div>
