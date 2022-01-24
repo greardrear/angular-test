@@ -1,21 +1,22 @@
-<div class="box" *ngFor="let post of posts" routerLink="/posts">
-    <ul>
-        <li class="userID">
+<div class="box" routerLink="/posts"> 
+    
+    
+        <h4 class="userID">
             user id: {{post.userId}}
-        </li>
-        <li class="userID">
+        </h4>
+        <h4 class="userID">
            post id: {{post.id}}
-        </li>
+        </h4>
         <hr>
-        <li class="title">
-            {{post.title | uppercase}}
-        </li>
-        <li class="text">
-            {{ (post.body.length>20)? (post.body | slice:0:20)+'...':(post.body) }}
-        </li>
-    </ul>
+        <h2 class="title">
+           title: {{post.title | uppercase}}
+        </h2>
+        <h4 class="text">
+           body: {{ (post.body.length>20)? (post.body | slice:0:20)+'...':(post.body) }}
+        </h4>
+    
     <button [routerLink]="['/posts', post.id]" class="btn" >View Details</button>
     
     <app-post-details *ngIf="detail"></app-post-details>
-    
-</div>
+
+ </div> 

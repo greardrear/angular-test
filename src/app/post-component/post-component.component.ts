@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PostComponentService } from '../post-component.service';
 
 
 @Component({
@@ -10,13 +11,17 @@ export class PostComponentComponent implements OnInit {
 
 
 show: boolean = false;
+posts: Array<object> = []
 
-
-  constructor() { 
+  constructor(private postComponentService: PostComponentService) { 
     
   }
 
   ngOnInit(): void {
+    this.postComponentService.fetchPosts().subscribe((response) => {
+      
+      this.posts = response;
+      });
   }
   showForm() {
     this.show = !this.show

@@ -1,4 +1,4 @@
 <button class="btn" (click)="showForm()">Add New Post</button>
 
 <app-form *ngIf="show"></app-form>
-<app-post-item-component ></app-post-item-component>
+<app-post-item-component *ngFor="let post of posts" [post]="post"></app-post-item-component>
