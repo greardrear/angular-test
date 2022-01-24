@@ -25,9 +25,11 @@ submitForm(data: any) {
     return;
   }
   
-  this.postComponentService.submitForm(data);
+  this.postComponentService.submitForm(data.value).subscribe(() =>
+  {
+    this.postComponentService.fetchPosts()
+  });
   console.log(data.value)
-  
   
 
 }
