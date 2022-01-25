@@ -47,7 +47,7 @@ get body() {
 submitForm(data: any) {
   
   this.postComponentService.submitForm(data.value).subscribe();
-  this.postComponentService.fetchPosts();
+  this.postComponentService.fetchPosts().subscribe();
   this.reactivForm.reset();
 
 }
