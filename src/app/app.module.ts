@@ -7,7 +7,7 @@ import { PostComponentComponent } from './post-component/post-component.componen
 import { HttpClientModule } from '@angular/common/http';
 import { PostItemComponentComponent } from './post-item-component/post-item-component.component';
 import { FormComponent } from './form/form.component';
-import { FormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { PostDetailsComponent } from './post-details/post-details.component';
 
 
@@ -24,7 +24,8 @@ import { PostDetailsComponent } from './post-details/post-details.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

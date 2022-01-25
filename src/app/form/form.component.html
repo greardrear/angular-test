@@ -1,15 +1,13 @@
 <div>
-    <form (ngSubmit)="submitForm(form)" #form="ngForm">
-        <br>
-        <label>Title</label>
-        <br>
-        <input type="text" name="title" id="title" placeholder="Enter post title" ngModel required>
+    <form (ngSubmit)="submitForm(form)" #form="ngForm" [formGroup]="reactivForm">
+     
+        <input type="text" formControlName="title" id="title" placeholder="Enter post title" required >
         <br>
         <label>Post Text</label>
         <br>
-        <input type="text" name="body" id="body" placeholder="Write your post" ngModel required>
+        <input type="text" formControlName="body" id="body" placeholder="Write your post" required>
         <br> 
         
-        <button  type="submit" class="btn" [disabled]="form.invalid">Submit Post</button>
+        <button  type="submit" class="btn" >Submit Post</button>
     </form>
 </div>
