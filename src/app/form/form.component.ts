@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PostComponentService } from '../post-component.service';
 
 
@@ -23,25 +23,32 @@ reactivForm: FormGroup;
 
   ngOnInit(): void {
     this.reactivForm = this.fb.group({
-      title: '',
-      body: ''
+      title:['', [
+        Validators.required,
+        Validators.minLength(2)
+        
+      ]],
+      body:['', [
+        Validators.required,
+        Validators.minLength(10)
+      ]]
     })
-    this.reactivForm.valueChanges.subscribe(console.log)
+    this.reactivForm.valueChanges.subscribe(console.log);
   }
 
+get title() {
+  return this.reactivForm.get('title')
+}
 
-
+get body() {
+  return this.reactivForm.get('body')
+}
 
 submitForm(data: any) {
-  if (data.invalid) {
-    alert('Please fill out both fields');
-    return;
-  }
   
   this.postComponentService.submitForm(data.value).subscribe();
-  console.log(data.value)
-  this.postComponentService.fetchPosts()
-  this.reactivForm.reset()
+  this.postComponentService.fetchPosts();
+  this.reactivForm.reset();
 
 }
 }
