@@ -1,15 +1,16 @@
 <div>
-    <form (ngSubmit)="submitForm(form)" #form="ngForm">
-        <br>
+    <form (ngSubmit)="submitForm(reactivForm)"  [formGroup]="reactivForm">
         <label>Title</label>
         <br>
-        <input type="text" name="title" id="title" placeholder="Enter post title" ngModel required>
+        <input type="text" formControlName="title" id="title" placeholder="Enter post title"  >
+        <p class="error" *ngIf="title.invalid && title.touched" > Please write at least two characters in this field </p>
         <br>
         <label>Post Text</label>
         <br>
-        <input type="text" name="body" id="body" placeholder="Write your post" ngModel required>
+        <input type="text" formControlName="body" id="body" placeholder="Write your post" >
+       <p class="error"*ngIf="body.invalid && body.touched"> Please write at least 10 characters </p>
         <br> 
         
-        <button  type="submit" class="btn" [disabled]="form.invalid">Submit Post</button>
+        <button  type="submit" class="btn" [disabled]="reactivForm.invalid" >Submit Post</button>
     </form>
 </div>
